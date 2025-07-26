@@ -252,8 +252,15 @@ About
 <img width="1918" height="1093" alt="image" src="https://github.com/user-attachments/assets/b01f0abb-7c66-48fb-b2e3-601b6ec25876" />
 
 
+---
+
+## 🌐 Live Demo
+
+> https://graceful-pithivier-bee131.netlify.app/
+
 
 ---
+
 
 ## 👤 Author 👩‍💻📝💼
 

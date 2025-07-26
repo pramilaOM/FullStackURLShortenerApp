@@ -6,7 +6,7 @@ A production-ready full-stack application that allows users to shorten long URLs
 ---
 
 ## ✨ Live Demo 🚀🌍🔧
-
+* **Site**: https://graceful-pithivier-bee131.netlify.app/
 * **Frontend**: [https://graceful-pithivier-bee131.netlify.app](https://graceful-pithivier-bee131.netlify.app)
 * **Backend API**: [https://url-shortener-sb-5mgd.onrender.com](https://url-shortener-sb-5mgd.onrender.com)
 

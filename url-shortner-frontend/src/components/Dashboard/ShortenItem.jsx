@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import { LiaCheckSolid } from "react-icons/lia";
 import { IoCopy } from "react-icons/io5";
 import api from '../../api/api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useStoreContext } from '../../contextApi/ContextApi';
 import { Hourglass } from 'react-loader-spinner';
 import Graph from './Graph';
@@ -20,7 +20,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     const [selectedUrl, setSelectedUrl] = useState("");
     const [analyticsData, setAnalyticsData] = useState([]);
 
-    const subDomain = import.meta.env.VITE_REACT_SUBDOMAIN.replace(
+    const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(
         /^https?:\/\//,
         ""
     );
@@ -36,7 +36,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     const fetchMyShortUrl = async () => {
         setLoader(true);
         try {
-            const { data } = await api.get(`/api/urls/analytics/${selectedUrl}?startDate=2025-01-01T00:00:00&endDate=2025-12-31T23:59:59`, {
+            const { data } = await api.get(`/api/urls/analytics/${selectedUrl}?startDate=2025-01-01T00:00:00&endDate=2030-12-31T23:59:59`, {
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json",
@@ -65,11 +65,20 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
             <div className={`flex sm:flex-row flex-col sm:justify-between w-full sm:gap-0 gap-5 py-5`}>
                 <div className="flex-1 sm:space-y-1 max-w-full overflow-x-auto overflow-y-hidden">
                     <div className="text-slate-900 pb-1 sm:pb-0 flex items-center gap-2">
-                        <a href={`${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`}
+                        {/* <a href={`${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`}
                             target="_blank"
                             className="text-[17px] font-montserrat font-[600] text-linkColor">
                             {subDomain + "/" + `${shortUrl}`}
-                        </a>
+                        </a> */}
+
+                        <Link
+                            target='_'
+                            className='text-[17px] font-montserrat font-[600] text-linkColor'
+                            to={import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`}>
+                            {subDomain + "/s/" + `${shortUrl}`}
+                        </Link>
+
+
                         <FaExternalLinkAlt className="text-linkColor" />
                     </div>
                     <div className="flex items-center gap-1 ">
@@ -101,22 +110,30 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                 <div
                     className="flex flex-1 justify-end items-center gap-4"
                 >
-                    <div
-                        className="flex items-center gap-2 px-4 py-2 bg-[#3B82F6] text-white rounded-md shadow-lg cursor-pointer transition duration-200"
-                        onClick={() => {
-                            navigator.clipboard.writeText(`${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`);
-                            setIsCopied(true);
-                        }}
-                    >
-                        <span className="text-sm font-semibold">
-                            {isCopied ? "Copied" : "Copy"}
-                        </span>
-                        {isCopied ? (
-                            <LiaCheckSolid className="text-lg" />
-                        ) : (
-                            <IoCopy className="text-lg" />
-                        )}
+                    <div className="flex flex-1 sm:justify-end items-center gap-4">
+                        <div
+                            className="flex items-center gap-1 cursor-pointer bg-btnColor py-2 font-semibold text-white px-3 rounded-md"
+                            // onClick={() => {
+                            //     navigator.clipboard.writeText(`${import.meta.env.VITE_REACT_FRONT_END_URL + "/s/"+ `${shortUrl}`}`);
+                            //     setIsCopied(true);
+                            // }}
+                            onClick={() => {
+                                navigator.clipboard.writeText(`${import.meta.env.VITE_REACT_FRONT_END_URL}/s/${shortUrl}`);
+                                setIsCopied(true);
+                            }}
+
+                        >
+                            <button className="">
+                                {isCopied ? "Copied" : "Copy"}
+                            </button>
+                            {isCopied ? (
+                                <LiaCheckSolid className="text-md" />
+                            ) : (
+                                <IoCopy className="text-md" />
+                            )}
+                        </div>
                     </div>
+
                     <div
                         onClick={() => analyticsHandler(shortUrl)}
                         className="flex items-center gap-2 px-4 py-2 bg-[#E11D48] text-white rounded-md shadow-lg cursor-pointer transition duration-200"
@@ -162,7 +179,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
                             </div>
 
                         )}
-                        <Graph graphData = {analyticsData} />
+                            <Graph graphData={analyticsData} />
                         </>
                     )}
                 </div>

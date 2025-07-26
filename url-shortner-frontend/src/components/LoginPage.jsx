@@ -32,7 +32,7 @@ const LoginPage = () => {
 
         setLoader(true);
         try {
-            const { data: response } = await api.post("api/auth/public/login",
+            const { data: response } = await api.post("/api/auth/public/login",
                 data
             );
             console.log(response.token);

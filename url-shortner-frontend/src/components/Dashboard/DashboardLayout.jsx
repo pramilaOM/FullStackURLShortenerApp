@@ -7,6 +7,7 @@ import ShortendPopUp from './ShortendPopUp';
 import ShortenUrlList from './ShortenUrlList';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../Loader';
+import { FaLink } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     // Show only the last 30 records

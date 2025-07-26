@@ -155,10 +155,10 @@ docker push pramilayadav/url-shortener-sb
 3. To set up environment variables and run inside container (Windows PowerShell):
 
 ```powershell
-$env:DATABASE_URL="jdbc:postgresql://ep-delicate-silence-ad63y8x5-pooler.c-2.us-east-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_CIx5ze0gruvO&sslmode=require&channelBinding=require"
-$env:DATABASE_USERNAME="neondb_owner"
-$env:DATABASE_PASSWORD="npg_CIx5ze0gruvO"
-$env:JWT_SECRET="TI/InEtfDtWI+/FeibiQbjMT6HO0LQgTjjestLhCPGA="
+$env:DATABASE_URL=
+$env:DATABASE_USERNAME=
+$env:DATABASE_PASSWORD=
+$env:JWT_SECRET=
 $env:FRONTEND_URL="http://localhost:5173"
 $env:DATABASE_DIALECT="org.hibernate.dialect.PostgreSQLDialect"
 
@@ -224,11 +224,34 @@ npm run dev
 
 ### Login Page
 
-![Login](https://graceful-pithivier-bee131.netlify.app/login)
+<img width="1919" height="1090" alt="image" src="https://github.com/user-attachments/assets/51f9d3c5-74a9-406a-a82e-8a79557a7393" />
+
+SignUp
+
+<img width="1919" height="1096" alt="image" src="https://github.com/user-attachments/assets/b5e67e7b-a6d2-410b-8518-d63ba7e9e5f6" />
 
 ### Dashboard
 
-![Dashboard](https://graceful-pithivier-bee131.netlify.app/dashboard)
+<img width="1919" height="1111" alt="image" src="https://github.com/user-attachments/assets/b5996d32-ece3-4ed1-86c2-ef72bf70c42d" />
+
+
+<img width="1919" height="1074" alt="image" src="https://github.com/user-attachments/assets/9a821688-3433-4f83-8bdb-7ebbff2e07b4" />
+
+
+Create new shorted url
+
+
+<img width="1912" height="1081" alt="image" src="https://github.com/user-attachments/assets/d21c89dc-f7a6-44db-8fd8-e285fa164da6" />
+
+<img width="1885" height="596" alt="image" src="https://github.com/user-attachments/assets/d6260f61-a94a-4f75-8890-9411ce95d5c0" />
+
+Home
+<img width="1919" height="1099" alt="image" src="https://github.com/user-attachments/assets/8fa48ce4-a67a-43a1-be50-9630a6374127" />
+
+About
+<img width="1918" height="1093" alt="image" src="https://github.com/user-attachments/assets/b01f0abb-7c66-48fb-b2e3-601b6ec25876" />
+
+
 
 ---
 
